@@ -1,76 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Angus Forbes | Contact</title>
-  <style>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+    :root {
+      --red: #c00;
+      --beige: #ede8d0;
+    }
+
     body {
       margin: 0;
       font-family: "Courier New", Courier, monospace;
-      background: #ede8d0;
+      background: var(--beige);
       color: #000;
     }
 
     header {
-      background: #ede8d0;
-      color: #f00;
-      padding: 1rem;
+      background: var(--red);
+      color: var(--beige);
       text-align: center;
-      border-bottom: 2px solid #f00;
+      padding: 1rem;
+      border-bottom: 2px solid var(--red);
     }
 
+    footer {
+      background: var(--beige);
+      color: var(--red);
+      text-align: center;
+      padding: 1rem;
+      border-top: 2px solid var(--red);
+    }
     nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.8rem; /* Slightly reduced gap for mobile */
       padding: 0.5rem;
-      background: #ede8d0;
+      background: var(--beige);
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
     }
-
     nav a {
       text-decoration: underline;
-      color: blue;
+      color: var(--red);
     }
-
     .container {
       max-width: 800px;
       margin: 2rem auto;
       padding: 1rem;
-      background: #ede8d0;
     }
-
     h2 {
       border-bottom: 1px solid #000;
       padding-bottom: 0.25rem;
     }
-
     .contact-links p {
       margin: 0.5rem 0;
     }
-
     .contact-links span {
       font-weight: bold;
-      transition: color 0.3s;
     }
-
     .contact-links span:hover {
       color: red;
     }
-
     .contact-text {
       margin-top: 2rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #ede8d0;
-      color: #f00;
-      font-size: 0.9rem;
-      border-top: 2px solid #f00;
     }
   </style>
 </head>
@@ -79,20 +75,18 @@
     <h1>Angus Forbes</h1>
     <p>Portraits | Still life</p>
   </header>
-
   <nav>
     <a href="portfolio.html">Portfolio</a>
     <a href="index.html">About</a>
     <a href="exhibitions.html">Exhibitions</a>
-    <a href="#contact">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
-
   <div class="container">
     <section id="contact">
       <h2>Contact</h2>
 
       <div class="contact-text">
-        <p>Please direct all commissions, requests and hate mail to:</a></p>
+        <p>Please direct all commissions, requests and hate mail to:</p>
       </div>
 
       <div class="contact-links">
@@ -100,12 +94,11 @@
       </div>
 
       <div class="contact-text">
-        <p>If you would like to buy any of my existing work, please don't hesitate to get in touch, preferably via email.</p>
+        <p>If you have any questions, please don't hesitate to get in touch.</p>
         <p>For commissions, my price list can be viewed <a href="price-lists.html" style="color: blue; text-decoration: underline;">here</a>.</p>
       </div>
     </section>
   </div>
-
   <footer>
     <p>&copy; 2025 Angus Forbes. All rights reserved.</p>
   </footer>
