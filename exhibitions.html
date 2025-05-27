@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Angus Forbes | Exhibitions</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+      background: #ede8d0;
+      color: #000;
+    }
+    header, footer {
+      background: #ede8d0;
+      color: #f00;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 2px solid #f00;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.5rem;
+      background: #ede8d0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    nav a {
+      text-decoration: underline;
+      color: blue;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      border: 1px solid #000;
+      transition: 0.3s ease;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      text-align: center;
+      padding: 1rem;
+      transition: background-color 0.3s ease, opacity 0.3s ease;
+      font-size: 0.9rem;
+    }
+    .gallery-item:hover .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Angus Forbes</h1>
+    <p>Portraits | Still life</p>
+  </header>
+  <nav>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <div class="container">
+    <h2>Exhibitions</h2>
+    <div class="gallery">
+      <a href="https://www.instagram.com/p/DIiypKjo9JG/?img_index=1" target="_blank" class="gallery-item">
+        <img src="Openhouse1.jpg" alt="Open House Poster">
+        <div class="overlay">
+          May 2025 – "Open House: Transforming Winns Gallery into a Home", Winns Gallery, London
+        </div>
+      </a>
+      <a href="https://www.instagram.com/p/C7Mfe-GtNXx/?img_index=1" target="_blank" class="gallery-item">
+        <img src="BeautifulAndUseful1.png" alt="Beautiful and Useful Poster">
+        <div class="overlay">
+          June 2024 – "Beautiful and Useful", Winns Gallery, London
+        </div>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Angus Forbes. All rights reserved.</p>
+  </footer>
+</body>
+</html>

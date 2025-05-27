@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Angus Forbes | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+      background: #ede8d0;
+      color: #000;
+    }
+    header, footer {
+      background: #ede8d0;
+      color: #f00;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 2px solid #f00;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.5rem;
+      background: #ede8d0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    nav a {
+      text-decoration: underline;
+      color: blue;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      color: #fff;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      box-shadow: 0 0 10px #000;
+    }
+    #caption {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lightbox-arrow.left {
+      left: 20px;
+    }
+    .lightbox-arrow.right {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Angus Forbes</h1>
+    <p>Portraits | Still life</p>
+  </header>
+
+  <nav>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <img src="2024Adam.jpg" alt="Portrait of Adam (2024)" loading="lazy">
+      <img src="2024ArtistsFather.jpg" alt="Portrait of the Artist's Father (2024)" loading="lazy">
+      <img src="2024PortraitofaGirl.jpg" alt="Portrait of a Young Girl (2024)" loading="lazy">
+      <img src="2024RitaDarningSocks.jpg" alt="Rita Darning Socks (2024)" loading="lazy">
+      <img src="2024PortraitofanOldManAfterFetchin.jpg" alt="Portrait of an Old Man (after Fetchin) (2024)" loading="lazy">
+      <img src="2024Lunch.jpg" alt="Lunch (2024)" loading="lazy">
+      <img src="PortraitofYoungMan.JPG" alt="Portrait of a Young Man" loading="lazy">
+      <img src="sketchbook/sketch3.jpeg" alt="Sketch 3" loading="lazy">
+      <img src="sketchbook/sketch23.jpeg" alt="Sketch 23" loading="lazy">
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="sketchbook.html" class="link-highlight" style="font-size: 1.2rem;">View my sketchbook here</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Angus Forbes. All rights reserved.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span class="lightbox-arrow left">&#10094;</span>
+    <img src="" alt="Enlarged artwork">
+    <div id="caption"></div>
+    <span class="lightbox-arrow right">&#10095;</span>
+  </div>
+
+  <script>
+    const images = Array.from(document.querySelectorAll('.gallery img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const caption = document.getElementById('caption');
+    const leftArrow = document.querySelector('.lightbox-arrow.left');
+    const rightArrow = document.querySelector('.lightbox-arrow.right');
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      const img = images[index];
+      lightboxImg.src = img.src;
+      caption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+      currentIndex = index;
+    }
+
+    function showNext(offset) {
+      currentIndex = (currentIndex + offset + images.length) % images.length;
+      openLightbox(currentIndex);
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === caption) {
+        lightbox.style.display = 'none';
+      }
+    });
+
+    leftArrow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext(-1);
+    });
+
+    rightArrow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext(1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') showNext(-1);
+        if (e.key === 'ArrowRight') showNext(1);
+        if (e.key === 'Escape') lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
