@@ -4,45 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Angus Forbes | About</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
+    :root {
+      --red: #c00;
+      --beige: #ede8d0;
+    }
+
     body {
       margin: 0;
       font-family: "Courier New", Courier, monospace;
-      background: #ede8d0;
+      background: var(--beige);
       color: #000;
     }
 
     header {
-      background: #c00; /* Red background */
-      color: #ede8d0;   /* Beige text */
+      background: var(--red);
+      color: var(--beige);
       text-align: center;
       padding: 1rem;
-      border-bottom: 2px solid #f00;
+      border-bottom: 2px solid var(--red);
     }
 
     footer {
-      background: #ede8d0;
-      color: #f00;
+      background: var(--beige);
+      color: var(--red);
       text-align: center;
       padding: 1rem;
-      border-top: 2px solid #f00;
+      border-top: 2px solid var(--red);
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.8rem; /* Slightly reduced gap for mobile */
       padding: 0.5rem;
-      background: #ede8d0;
+      background: var(--beige);
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
     }
 
     nav a,
     .link-highlight,
     .rainbow-hover {
       text-decoration: underline;
-      color: red;
+      color: var(--red);
       transition: color 0.3s ease;
     }
 
@@ -152,7 +159,6 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Bio section (moved above image grid) -->
   <div class="container">
     <h2>About</h2>
     <p>I am a London-based visual artist whose work is inspired by the painters of the late nineteenth and early twentieth centuries, namely the Post-Impressionists and the Symbolists. I am a member of 
@@ -163,7 +169,6 @@
     <p>I am selling my works and take commissions. <strong><a class="link-highlight" href="price-lists.html">Price lists can be found here</a></strong>.</p>
   </div>
 
-  <!-- Image grid section -->
   <div class="image-grid">
     <div class="image-tile">
       <img src="2024Adam-adjusted.jpg" alt="Graphite and Sanguine" />
