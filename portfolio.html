@@ -4,32 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Angus Forbes | Portfolio</title>
-  <style>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+    :root {
+      --red: #c00;
+      --beige: #ede8d0;
+    }
+
     body {
       margin: 0;
       font-family: "Courier New", Courier, monospace;
-      background: #ede8d0;
+      background: var(--beige);
       color: #000;
     }
-    header, footer {
-      background: #ede8d0;
-      color: #f00;
+
+    header {
+      background: var(--red);
+      color: var(--beige);
       text-align: center;
       padding: 1rem;
-      border-bottom: 2px solid #f00;
+      border-bottom: 2px solid var(--red);
     }
+
+    footer {
+      background: var(--beige);
+      color: var(--red);
+      text-align: center;
+      padding: 1rem;
+      border-top: 2px solid var(--red);
+    }
+
     nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.8rem; /* Slightly reduced gap for mobile */
       padding: 0.5rem;
-      background: #ede8d0;
+      background: var(--beige);
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
     }
     nav a {
       text-decoration: underline;
-      color: blue;
+      color: var(--red);
     }
     .container {
       max-width: 1000px;
@@ -114,7 +131,7 @@
       <img src="2024RitaDarningSocks.jpg" alt="Rita Darning Socks (2024)" loading="lazy">
       <img src="2024PortraitofanOldManAfterFetchin.jpg" alt="Portrait of an Old Man (after Fetchin) (2024)" loading="lazy">
       <img src="2024Lunch.jpg" alt="Lunch (2024)" loading="lazy">
-      <img src="PortraitofYoungMan.jpg" alt="Portrait of a Young Man" loading="lazy">
+      <img src="PortraitofYoungMan.JPG" alt="Portrait of a Young Man" loading="lazy">
       <img src="sketch3.jpeg" alt="Sketch 3" loading="lazy">
       <img src="sketch23.jpeg" alt="Sketch 23" loading="lazy">
     </div>
@@ -184,4 +201,3 @@
   </script>
 </body>
 </html>
-
