@@ -3,96 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Angus Forbes | Price Lists</title>
+  <title>Angus Forbes | Sketchbook</title>
   <style>
     body {
       margin: 0;
+      background: #eae0c8;
       font-family: "Courier New", Courier, monospace;
-      background: #ede8d0;
-      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      overflow: hidden;
     }
-    header, footer {
-      background: #ede8d0;
-      color: #f00;
-      text-align: center;
-      padding: 1rem;
-      border-bottom: 2px solid #f00;
+
+    h1 {
+      margin: 1rem;
+      color: red;
     }
-    nav {
+
+    .sketchbook-container {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .page-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s ease;
+    }
+
+    .page {
+      position: relative;
+      width: 80vw;
+      height: 85vh;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem;
-      background: #ede8d0;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
+      align-items: center;
+      z-index: 2;
     }
-    nav a {
-      text-decoration: underline;
+
+    .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.5s ease;
+    }
+
+    .preview {
+      width: 30vw;
+      height: 70vh;
+      opacity: 0.3;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .preview.left {
+      left: 5vw;
+    }
+
+    .preview.right {
+      right: 5vw;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #555;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .back-link {
+      margin: 1rem;
+      font-size: 1rem;
       color: blue;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    h2, h3 {
-      margin-top: 2rem;
-      color: #000;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-    p {
-      margin: 0.5rem 0 1rem 0;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1><span class="hover-word">Angus</span> <span class="hover-word">Forbes</span></h1>
-    <p>Portraits | Still life</p>
-  </header>
-  <nav>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="index.html">About</a>
-    <a href="exhibitions.html">Exhibitions</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="container">
-    <h2>Price List</h2>
+  <h1>Sketchbook</h1>
 
-    <h3>Graphite Portraits</h3>
-    <p>My graphite portraits are inspired by the techniques of the French and German old masters, namely Albrecht Dürer and Jean Auguste Dominique Ingres.</p>
-    <ul>
-      <li>A4 – £100</li>
-      <li>A3 – £200</li>
-      <li>A2 – £350</li>
-    </ul>
+  <div class="sketchbook-container">
+    <div class="arrow left">&#10094;</div>
 
-    <h3>Sanguine Portraits</h3>
-    <p>Sanguine is a vibrant, earthy medium historically used by the old masters, Impressionists, and Pre-Raphaelites. I use its softness and warmth to capture mood and subtle expression.</p>
-    <ul>
-      <li>A4 – £110</li>
-      <li>A3 – £220</li>
-      <li>A2 – £370</li>
-    </ul>
+    <div class="preview left">
+      <img id="prev-img" src="" alt="Previous sketch">
+    </div>
 
-    <h3>Watercolour</h3>
-    <p>My watercolours make use of line and dreamy colours to create a tranquil effect.</p>
-    <ul>
-      <li>A4 – £50</li>
-      <li>A3 – £100</li>
-    </ul>
+    <div class="page-wrapper">
+      <div class="page">
+        <img id="sketch-img" src="sketchbook/sketch1.jpeg" alt="Sketchbook page 1">
+      </div>
+    </div>
 
-    <h3>Oil</h3>
-    <p>I paint on both canvas and board. Prices depend on the size, subject and style of the piece.</p>
+    <div class="preview right">
+      <img id="next-img" src="" alt="Next sketch">
+    </div>
 
-    <p><strong>Any sizes, styles, subjects or media not listed here will be considered on request.</strong></p>
+    <div class="arrow right">&#10095;</div>
   </div>
-  <footer>
-    <p>&copy; 2025 Angus Forbes. All rights reserved.</p>
-  </footer>
+
+  <a class="back-link" href="portfolio.html">Back to Portfolio</a>
+
+  <script>
+    const images = [
+      "sketchbook/sketch1.jpeg",
+      "sketchbook/sketch2.jpeg",
+      "sketchbook/sketch3.jpeg",
+      "sketchbook/sketch4.jpeg",
+      "sketchbook/sketch5.jpeg",
+      "sketchbook/sketch6.jpeg",
+      "sketchbook/sketch7.jpeg",
+      "sketchbook/sketch8.jpeg",
+      "sketchbook/sketch9.jpeg",
+      "sketchbook/sketch10.jpeg",
+      "sketchbook/sketch11.jpeg",
+      "sketchbook/sketch12.jpeg",
+      "sketchbook/sketch13.jpeg",
+      "sketchbook/sketch14.jpeg",
+      "sketchbook/sketch15.jpeg",
+      "sketchbook/sketch16.jpeg",
+      "sketchbook/sketch17.jpeg",
+      "sketchbook/sketch18.jpeg",
+      "sketchbook/sketch19.jpeg",
+      "sketchbook/sketch20.jpeg",
+      "sketchbook/sketch21.jpeg",
+      "sketchbook/sketch22.jpeg",
+      "sketchbook/sketch23.jpeg",
+      "sketchbook/sketch24.jpeg",
+      "sketchbook/sketch25.jpeg",
+      "sketchbook/sketch26.jpeg",
+      "sketchbook/sketch27.jpeg"
+    ];
+
+    let current = 0;
+    const mainImg = document.getElementById("sketch-img");
+    const prevImg = document.getElementById("prev-img");
+    const nextImg = document.getElementById("next-img");
+    const leftArrow = document.querySelector(".arrow.left");
+    const rightArrow = document.querySelector(".arrow.right");
+
+    function updateImages() {
+      mainImg.src = images[current];
+      mainImg.alt = `Sketchbook page ${current + 1}`;
+      prevImg.src = images[(current - 1 + images.length) % images.length];
+      nextImg.src = images[(current + 1) % images.length];
+    }
+
+    leftArrow.addEventListener("click", () => {
+      current = (current - 1 + images.length) % images.length;
+      updateImages();
+    });
+
+    rightArrow.addEventListener("click", () => {
+      current = (current + 1) % images.length;
+      updateImages();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") leftArrow.click();
+      if (e.key === "ArrowRight") rightArrow.click();
+      if (e.key === "Escape") window.location.href = "portfolio.html";
+    });
+
+    updateImages();
+  </script>
 </body>
 </html>
